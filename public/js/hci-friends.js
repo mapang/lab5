@@ -3,6 +3,18 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+
+	$(".click-listener").click(function(event){
+		//in here is the callback which will run after running function()
+
+		event.preventDefault(); // prevent default behavior of anchor tag <a href=#> & you from scrolling up
+		
+		var name = $(this).first().text().trim(); // get the name
+		console.log(name);
+		var newName = anagrammedName(name);
+		$(this).first().text(newName);  // set name
+		
+	});
 })
 
 /*
